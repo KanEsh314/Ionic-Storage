@@ -13,18 +13,18 @@ export class HomePage {
 	Username = '';
 	Password = '';
 
-  constructor(public navCtrl: NavController , public storageCtrl: Storage , public toastCtrl: ToastController , public authService: AuthProvider) {
+  constructor(public navCtrl: NavController , public storage:Storage , public toastCtrl: ToastController , public authService: AuthProvider) {
     //Code Below For Storage
-  	this.storageCtrl.ready()
+  	this.storage.ready()
   		.then(() => {
-  			this.storageCtrl.set('myKey' , 10);
+  			this.storage.set('myKey' , 10);
   		});
   }
 
   getRegister(){
 
     let credentials = {
-      username: this.Username,
+      email: this.Username,
       password: this.Password
     };
 
@@ -40,7 +40,7 @@ export class HomePage {
   getValues(){
 
     let credentials = {
-      username: this.Username,
+      email: this.Username,
       password: this.Password
     };
 
@@ -53,7 +53,7 @@ export class HomePage {
       });
 
 //Code Below For Storage
-  	this.storageCtrl.get('myKey')
+  	this.storage.get('myKey')
   		.then((data) => {
   			data = {
   				user: this.Username,

@@ -20,7 +20,7 @@ export class HttpProvider {
   	return new Promise((resolve , reject) => {
 
   		let headers = new Headers();
-  		headers.append('Authorization','Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.kHZQ03yhLOPC1c7f6CdItQbT2ljvMQLbucdJVkqwEKs');
+  		headers.append('Authorization','Bearer ' + this.authService.token);
 
   		this.http.get('https://mysterious-beach-83937.herokuapp.com/loggedInCoach' , {headers: headers})
   			.map(res => res.json())
